@@ -21,6 +21,8 @@
                 (click)="navigateCopyService()"></button>
             <button pButton label="Export" size="small" (click)="exportExcel()" icon="pi pi-upload"
                 class="m-2"></button>
+            <!-- <button pButton label="Import" size="small" (click)="showImportsDialog()" icon="pi pi-external-link"
+                class="m-2"></button> -->
 
         </ng-template>
     </p-toolbar>
@@ -66,5 +68,25 @@
         </p-table>
     </div>
 </div>
+
+
+<!-- Imports Dialog -->
+<p-dialog header="Import From:" class="header-color" [(visible)]="displayImportsDialog" [modal]="true"
+    [style]="{width: '70vw'}" [responsive]="true">
+    <div class="flex align-items-between justify-content-between">
+        <p-button [outlined]="true" label="Excel Sheet ?" size="small" (click)="showExcelDialog()"
+            class="m-2"></p-button>
+    </div>
+</p-dialog>
+
+<!-- Excel Dialog -->
+<p-dialog header="Select Rows to Copy:" class="header-color" [(visible)]="displayExcelDialog" [modal]="true"
+    [style]="{width: '70vw'}" [responsive]="true">
+    <div class="flex align-items-center justify-content-center flex-column">
+        <p-fileUpload #fileUploader name="file" accept=".xlsx,.xls" mode="basic"
+            (onSelect)="onFileSelect($event, fileUploader)" [auto]="true" class="m-2" chooseLabel="Choose Excel File">
+        </p-fileUpload>
+    </div>
+</p-dialog>
 
 <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
