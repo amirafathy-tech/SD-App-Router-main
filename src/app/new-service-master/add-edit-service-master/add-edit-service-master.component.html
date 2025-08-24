@@ -1,6 +1,10 @@
 <p-toast></p-toast>
- <button pButton label="Import" size="small" (click)="showImportsDialog()" icon="pi pi-external-link"
-                class=""></button>
+ <!-- <button pButton label="Import" size="small" (click)="showImportsDialog()" icon="pi pi-external-link"
+                class=""></button> -->
+                <div style="display: flex; justify-content: flex-end;">
+  <button pButton label="Import from Excel Sheet" size="small" (click)="showExcelDialog()" icon="pi pi-external-link"></button>
+</div>
+
 <div class="card mt-5">
     
 <form [formGroup]="serviceMasterForm" (ngSubmit)="onSubmit(serviceMasterForm)">
@@ -180,7 +184,7 @@
 </p-dialog>
 
 <!-- Excel Dialog -->
-<p-dialog header="Select Rows to Copy:" class="header-color" [(visible)]="displayExcelDialog" [modal]="true"
+<p-dialog header="Select the file to Copy:" class="header-color" [(visible)]="displayExcelDialog" [modal]="true"
     [style]="{width: '70vw'}" [responsive]="true">
     <div class="flex align-items-center justify-content-center flex-column">
         <p-fileUpload #fileUploader name="file" accept=".xlsx,.xls" mode="basic"
