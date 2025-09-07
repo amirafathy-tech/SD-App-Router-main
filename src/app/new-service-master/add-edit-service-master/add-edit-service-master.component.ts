@@ -157,7 +157,7 @@ export class AddEditServiceMasterComponent implements OnInit {
     mainItem: new FormControl(false),
     serviceTypeCode: new FormControl('', [Validators.required]),
     materialGroupCode: new FormControl(''),
-    baseUnitOfMeasurement: new FormControl(''),
+    baseUnitOfMeasurement: new FormControl('',[Validators.required]),
     toBeConvertedUnitOfMeasurement: new FormControl(''),
     defaultUnitOfMeasurement: new FormControl(''),
   });
